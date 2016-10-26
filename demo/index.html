@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filters with Vanilla JS</title>
+  <link rel="stylesheet" href="style-philters.css" />
+  <link rel="stylesheet" href="style-demo.css" />
+</head>
+<body>
+
+  <div id="philters-wrapper">
+    <ul id="philters">
+      <li><a href="#philter-1">Filter 1</a></li>
+      <li><a href="#philter-2">Filter 2</a></li>
+      <li><a href="#philter-3">Filter 3</a></li>
+      <li><a href="#philter-4">Filter 4</a></li>
+      <li><a id="surprise-me" href="#surprise-me">Surprise Me</a></li>
+      <li><a id="clear-philters" href="#clear-philters">Clear Filters</a></li>
+    </ul>
+  </div>
+
+  <div id="results">
+    <div class="result philter-1">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/600/600" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-1 philter-4">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/800/800" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-2">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/700/700" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-3">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/900/900" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-1 philter-2">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/1000/1000" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-4">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/1100/1100" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-1 philter-3 philter-4">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/1200/1200" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-1 philter-4">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/1300/1300" alt="placeholder image" />
+      </a>
+    </div>
+    <div class="result philter-1 philter-2 philter-4">
+      <a href="http://google.com">
+        <img src="http://fillmurray.com/1400/1400" alt="placeholder image" />
+      </a>
+    </div>
+  </div>  
+
+  <script type="text/javascript" src="vanilla-filters.js"></script>
+
+  <script type="text/javascript">
+    philterContent('#philters', '#results', {
+      viewFilters: 'Open Filters',
+      hideFilters: 'Close Filters',
+      clearTarget: '#clear-philters',
+      clearFilters: 'Reset Filters',
+      surpriseTarget: '#surprise-me'
+    });
+  </script>
+
+</body>
+</html>

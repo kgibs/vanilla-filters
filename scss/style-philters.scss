@@ -1,0 +1,62 @@
+.philters-trigger {
+  cursor: pointer;
+  margin: 20px 0 0;
+  font-size: 16px;
+  color: #373737;
+  .alt-title {
+    display: none;
+  }
+  &.philters-open {
+    .default-title {
+      display: none;
+    }
+    .alt-title {
+      display: inline;
+    }
+  }
+}
+
+#philters-wrapper,
+#philter-warning {
+  padding: 0 20px;
+}
+
+.philters-parent {
+  transition: max-height 250ms ease-in-out;
+  overflow: hidden;
+  max-height: 1000px;
+  &.hide {
+    max-height: 0;
+  }
+  li {
+    font-size: 14px;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.result {
+  width: 0;
+  padding: 0;
+  max-height: 0;
+  transition: max-height 350ms ease-in-out, 
+              width 350ms ease-in-out, 
+              padding 350ms ease-in-out;
+  overflow: hidden;
+  &.philter-active,
+  &.random {
+    width: 100%;
+    max-height: 700px;
+  }
+}
+
+#philter-warning {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  &.msg-visible {
+    display: block;
+    opacity: 1;
+  }
+}
