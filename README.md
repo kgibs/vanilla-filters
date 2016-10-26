@@ -1,6 +1,6 @@
 # Pure JavaScript Content Filters
 
-[View the demo.](http://thephuse.github.io/pure-js-content-filters)
+[View the demo.](https://kgibs.github.io/pure-js-content-filters/)
 
 ### Simple, pure JavaScript content filtering.
 
