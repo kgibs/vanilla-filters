@@ -52,9 +52,9 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
 
   // set the initial state of all results to active (display all results by default)
   const resultsParent = document.querySelector(resultsContainer);
-  const results = Array.from(resultsParent.children);
+  const results = resultsParent.children;
 
-  for (let result of results) {
+  for (let result of Array.prototype.slice.call(results)) {
     result.classList.add('philter-active');
   }
 
@@ -63,9 +63,9 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
 
   if(options.surpriseTarget !== ''){
     // if user is including Surprise Me functionality, don't add the filter click function to it
-    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
+    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
   } else {
-    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a'));
+    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a'));
   }
 
   for (let link of philterLinks) {
@@ -85,7 +85,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
     document.querySelector(options.clearTarget).addEventListener('click', function(e){
       e.preventDefault();
       // clear all activated filters and reset results upon click of Clear Filters link
-      for (let reset of Array.from(document.querySelectorAll('.activate-philter'))) {
+      for (let reset of Array.prototype.slice.call(document.querySelectorAll('.activate-philter'))) {
         reset.classList.remove('activate-philter');
       }
       toggleVisible();
@@ -104,7 +104,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
       activeResults[randomNum].classList.add('random');
 
       // hide all results except for randomly selected only
-      for (let hideEm of Array.from(document.querySelectorAll('.philter-active'))) {
+      for (let hideEm of Array.prototype.slice.call(document.querySelectorAll('.philter-active'))) {
         hideEm.classList.remove('philter-active');
       }
 
@@ -136,10 +136,10 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
     }
 
     // loop through results to show only those with a class of the activated filter(s)
-    for (let single of results) {
+    for (let single of Array.prototype.slice.call(results)) {
       let showThis = true;
 
-      for (let filter of Array.from(activeFilters)) {
+      for (let filter of Array.prototype.slice.call(activeFilters)) {
         if (single.classList.contains(filter)) {
           showThis;
         } else {
