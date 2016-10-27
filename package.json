@@ -28,6 +28,7 @@
     "grunt-babel": "^6.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-polyfill-builder": "^1.0.2",
     "load-grunt-tasks": "^3.5.2"
   }
 }
