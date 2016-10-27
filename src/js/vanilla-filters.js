@@ -52,24 +52,24 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
 
   // set the initial state of all results to active (display all results by default)
   const resultsParent = document.querySelector(resultsContainer);
-  const results = Array.from(resultsParent.children);
+  const results = Array.prototype.slice.call(resultsParent.children);
 
-  for (let result of results) {
-    result.classList.add('philter-active');
-  }
+  results.forEach(function(item) {
+    item.classList.add('philter-active');
+  });
 
   // set filter as active or inactive on click and update results with toggleVisible() function
   let philterLinks;
 
   if(options.surpriseTarget !== ''){
     // if user is including Surprise Me functionality, don't add the filter click function to it
-    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
+    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
   } else {
-    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a'));
+    philterLinks = Array.prototype.slice.call(document.querySelectorAll(philtersContainer + ' a'));
   }
 
-  for (let link of philterLinks) {
-    link.addEventListener('click', function(e){
+  philterLinks.forEach(function(item) {
+    item.addEventListener('click', function(e){
       e.preventDefault();
       if (this.classList.contains('activate-philter')){
         this.classList.remove('activate-philter');
@@ -78,16 +78,17 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
       }
       toggleVisible();
     });
-  }
+  });
 
   // Clear Filters functionality. Show if option is true.
   if(options.clearTarget !== ''){
     document.querySelector(options.clearTarget).addEventListener('click', function(e){
       e.preventDefault();
       // clear all activated filters and reset results upon click of Clear Filters link
-      for (let reset of Array.from(document.querySelectorAll('.activate-philter'))) {
-        reset.classList.remove('activate-philter');
-      }
+      Array.prototype.slice.call(document.querySelectorAll('.activate-philter')).forEach(function(item){
+        item.classList.remove('activate-philter');
+
+      });
       toggleVisible();
     });
   }
@@ -104,9 +105,9 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
       activeResults[randomNum].classList.add('random');
 
       // hide all results except for randomly selected only
-      for (let hideEm of Array.from(document.querySelectorAll('.philter-active'))) {
-        hideEm.classList.remove('philter-active');
-      }
+      Array.prototype.slice.call(document.querySelectorAll('.philter-active')).forEach(function(item) {
+        item.classList.remove('philter-active');
+      });
 
       // redirect to URL of randomly selected item
       window.location = document.querySelector('.random a').getAttribute('href');
@@ -136,23 +137,23 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
     }
 
     // loop through results to show only those with a class of the activated filter(s)
-    for (let single of results) {
+    results.forEach(function(item) {
       let showThis = true;
 
-      for (let filter of Array.from(activeFilters)) {
-        if (single.classList.contains(filter)) {
+      Array.prototype.slice.call(activeFilters).forEach(function(newItem) {
+        if (item.classList.contains(newItem)) {
           showThis;
         } else {
           showThis = false;
         }
-      }
+      });
 
       if(showThis) {
-        single.classList.add('philter-active');
+        item.classList.add('philter-active');
       } else {
-        single.classList.remove('philter-active');
+        item.classList.remove('philter-active');
       }
-    }
+    });
 
     // if there are no results with the activated filter(s), show the warning / error message
     const warningAlert = document.querySelector('#philter-warning');

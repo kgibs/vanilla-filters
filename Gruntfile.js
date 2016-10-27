@@ -5,13 +5,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    polyfill: {
-        options: {
-            uglify: true,
-            features: ['es5', 'es6.object.assign'],
-            output: 'lib/polyfill.js'
-        }
-    },
     babel: {
       options: {
         sourceMap: false,
@@ -48,5 +41,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-polyfill-builder');
 
   // Default task(s).
-  grunt.registerTask('default', ['babel', 'sass', 'watch', 'polyfill']);
+  grunt.registerTask('default', ['babel', 'sass', 'watch']);
 };
