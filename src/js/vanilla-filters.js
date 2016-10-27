@@ -54,7 +54,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
 
   // set the initial state of all results to active (display all results by default)
   const resultsParent = document.querySelector(resultsContainer);
-  const results = resultsParent.children;
+  const results = Array.from(resultsParent.children);
 
   for (let result of results) {
     result.classList.add('philter-active');
@@ -65,9 +65,9 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
 
   if(options.surpriseTarget !== ''){
     // if user is including Surprise Me functionality, don't add the filter click function to it
-    philterLinks = document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')');
+    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a:not(' + options.surpriseTarget + ')'));
   } else {
-    philterLinks = document.querySelectorAll(philtersContainer + ' a');
+    philterLinks = Array.from(document.querySelectorAll(philtersContainer + ' a'));
   }
 
   for (let link of philterLinks) {
@@ -89,7 +89,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
     document.querySelector(options.clearTarget).addEventListener('click', function(e){
       e.preventDefault();
       // clear all activated filters and reset results upon click of Clear Filters link
-      for (let reset of document.querySelectorAll('.activate-philter')) {
+      for (let reset of Array.from(document.querySelectorAll('.activate-philter'))) {
         reset.classList.remove('activate-philter');
       }
       toggleVisible();
@@ -110,7 +110,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
       activeResults[randomNum].classList.add('random');
 
       // hide all results except for randomly selected only
-      for (let hideEm of document.querySelectorAll('.philter-active')) {
+      for (let hideEm of Array.from(document.querySelectorAll('.philter-active'))) {
         hideEm.classList.remove('philter-active');
       }
 
@@ -145,7 +145,7 @@ function philterContent(philtersContainer, resultsContainer, userOptions){
     for (let single of results) {
       let showThis = true;
 
-      for (let filter of activeFilters) {
+      for (let filter of Array.from(activeFilters)) {
         if (single.classList.contains(filter)) {
           showThis;
         } else {

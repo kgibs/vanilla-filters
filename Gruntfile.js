@@ -36,6 +36,7 @@ module.exports = function(grunt) {
   });
 
   // Load the plugin(s)
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
