@@ -9,12 +9,12 @@
 ## Usage
 
 #### 1. Include the script in the footer of your project.
-```<script type="text/javascript" src="/vanilla-filters/vanilla-filters.js"></script>```
+```<script type="text/javascript" src="dist/js/vanilla-filters.js"></script>```
 
 #### 2. Include the stylesheet in the header.
-```<link rel="stylesheet" href="vanilla-filters/style-philters.css" />```
+```<link rel="stylesheet" href="dist/css/style-philters.css" />```
 
-#### 3. Create the HTML for your page, styling as desired. (TO DO)
+#### 3. Create the HTML for your page, styling as desired.
 Your filter links should have a parent container with a unique ID and/or class. Each link should have a unique hash link (can be descriptive of your filter or anything you'd like). 
 
 The Surprise Me and Clear Filters links are optional, but if included must have a unique class or ID.
