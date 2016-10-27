@@ -63,13 +63,11 @@ The `userOptions` object is composed of optional key/value pairs to give you add
 
 ````js
 {
-  viewFilters: 'View Filters',
-  hideFilters: 'Hide Filters',
+  viewFilters: 'View Filters', // Customize text for View Filters action
+  hideFilters: 'Hide Filters', // Customize text for Hide Filters action
   clearTarget: '', // Clear Filters element id or class if functionality is desired. Leave as empty string to exclude from your filters.
-  clearFilters: 'Clear Filters',
   surpriseTarget: '', // Surprise element id or class if functionality is desired. Leave as empty string to exclude from your filters.
-  surpriseMe: 'Surprise Me',
-  warningMsg: 'Whoops! Looks like your search is too narrow. Try removing a selected filter or clear all filters to try again.'
+  warningMsg: 'Whoops! Looks like your search is too narrow. Try removing a selected filter or clear all filters to try again.' // Customize text for Warning Message
 }
 ````
 
